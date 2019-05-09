@@ -76,8 +76,8 @@ gulp.task('js', function() {
 })
 
 // 处理wxml文件
-gulp.task('wxml', async function() {
- await return (
+gulp.task('wxml', function() {
+ return (
     gulp
       .src(wxmlFiles)
       // 输出信息
@@ -134,12 +134,12 @@ gulp.task('others', function() {
 
 if (argv.watch) {
   // 监控模式
-  gulp.task('watch', function() {
-    gulp.watch(wxssFiles, gulp.series('wxss'))
-    gulp.watch(jsFiles, gulp.series('js'))
-    gulp.watch(wxmlFiles, gulp.series('wxml'))
-    gulp.watch(images, gulp.series('images'))
-    gulp.watch(otherFiles, gulp.series('others'))
+  gulp.task('watch', async function() {
+    await gulp.watch(wxssFiles, gulp.series('wxss'))
+    await gulp.watch(jsFiles, gulp.series('js'))
+    await gulp.watch(wxmlFiles, gulp.series('wxml'))
+    await gulp.watch(images, gulp.series('images'))
+    await gulp.watch(otherFiles, gulp.series('others'))
   })
 
   gulp.task(
