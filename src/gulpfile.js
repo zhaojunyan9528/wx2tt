@@ -76,8 +76,8 @@ gulp.task('js', function() {
 })
 
 // 处理wxml文件
-gulp.task('wxml', function() {
-  return (
+gulp.task('wxml', async function() {
+ await return (
     gulp
       .src(wxmlFiles)
       // 输出信息
