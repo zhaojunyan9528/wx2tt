@@ -24,7 +24,7 @@ gulp.task('clean', function(cb) {
 })
 
 // 处理wxss
-gulp.task('wxss', function() {
+gulp.task('wxss', done => {
   return (
     gulp
       .src(wxssFiles)
@@ -46,6 +46,7 @@ gulp.task('wxss', function() {
       .pipe($.if(argv.minify || argv['minify-wxss'], $.cleanCss()))
       .pipe(gulp.dest(DEST))
   )
+  done()
 })
 
 // 处理js
